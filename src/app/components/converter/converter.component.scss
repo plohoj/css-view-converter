@@ -1,0 +1,11 @@
+:host {
+    display: block;
+    margin: 5vmin; 
+    border-radius: 15px;
+    box-shadow: 0 0 3vmin -1vmin;
+    padding: 1vw;
+    app-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
