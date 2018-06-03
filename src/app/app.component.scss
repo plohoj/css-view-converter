@@ -2,6 +2,7 @@
     app-add-button {
         right: 3vmin;
         bottom: 3vmin;
-        position: absolute;
+        position: fixed;
+        z-index: 1;
     }
 }

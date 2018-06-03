@@ -1,0 +1,7 @@
+@import "./underline.scss";
+
+input {
+    border: none;
+    @include border-underline();
+    outline: none;
+}

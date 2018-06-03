@@ -7,5 +7,27 @@
     app-group {
         display: flex;
         flex-wrap: wrap;
+        padding-top: .7em;
+    }
+    .parameter {
+        padding-top: 3vh;
+        padding-right: 5vw;
+        .label {
+            color: #777;
+            font-size: 70%;
+            padding-bottom: 0.3em;
+        }
+    }
+    .value {
+        display: flex;
+        align-items: baseline;
+        input {
+            min-width: 60px;
+            max-width: 100px;
+            width: 100%;
+        }
+        .unit {
+            padding: 0 .5em;
+        }
     }
 }

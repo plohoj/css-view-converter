@@ -1,24 +1,33 @@
-<app-group [title]="'Экран'">
-	<div>
-		<div>Ширина</div>
-		<input type="text">
+<app-group [title]="'Экран'" class="screen">
+	<div class="parameter">
+		<div class="label">Ширина</div>
+		<div class="value">
+			<input type="text">
+			<span class="unit underline">px</span>
+		</div>
 	</div>
-	<div>
-		<div>Высота</div>
-		<input type="text">
+	<div class="parameter">
+		<div  class="label">Высота</div>
+		<div class="value">
+			<input type="text">
+			<span class="unit underline">px</span>
+		</div>
 	</div>
 </app-group>
-<div>
-	<div>
-		<input type="text">px
+<app-group class="converter">
+	<div class="parameter value" [title]="'Конвертер'" >
+		<input type="text">
+		<span class="unit underline">px</span>
 	</div>
 	<div>
-		<div>
-			<input type="text">vw
+		<div class="parameter value">
+			<input type="text">
+			<span class="unit underline">vw</span>
 		</div>
-		<div>
-			<input type="text">vh
+		<div class="parameter value">
+			<input type="text">
+			<span class="unit underline">vh</span>
 		</div>
 	</div>
-</div>
+</app-group>
 

@@ -1,0 +1,7 @@
+@mixin border-underline() {
+    border-bottom: 2px solid #555;
+}
+
+.underline {
+    @include border-underline();
+}
