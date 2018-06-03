@@ -2,30 +2,30 @@
 	<div class="parameter">
 		<div class="label">Ширина</div>
 		<div class="value">
-			<input type="text">
+			<input type="number" [(ngModel)]="width">
 			<span class="unit underline">px</span>
 		</div>
 	</div>
 	<div class="parameter">
 		<div  class="label">Высота</div>
 		<div class="value">
-			<input type="text">
+			<input type="number" [(ngModel)]="height" step="0.0001">
 			<span class="unit underline">px</span>
 		</div>
 	</div>
 </app-group>
 <app-group class="converter">
 	<div class="parameter value" [title]="'Конвертер'" >
-		<input type="text">
+		<input type="number" [(ngModel)]="px">
 		<span class="unit underline">px</span>
 	</div>
 	<div>
 		<div class="parameter value">
-			<input type="text">
+			<input type="number" [(ngModel)]="vw">
 			<span class="unit underline">vw</span>
 		</div>
 		<div class="parameter value">
-			<input type="text">
+			<input type="number" [(ngModel)]="vh">
 			<span class="unit underline">vh</span>
 		</div>
 	</div>
