@@ -20,49 +20,63 @@ export class ConverterComponent implements OnInit {
 	};
 	constructor() { }
 
-	public set width(value: number) {
-		this.values.width = value;
+	public set width(value: number | string) {
+		this.values.width = typeof value === 'string' ? parseInt(value, 10) : value;
 		this.updatePX();
 	}
 	public get width() {
-		return this.values.width;
+		return this.round(this.values.width);
 	}
-	public set height(value: number) {
-		this.values.height = value;
+	public set height(value: number | string) {
+		this.values.height = typeof value === 'string' ? parseInt(value, 10) : value;
 		this.updatePX();
 	}
 	public get height() {
 		return this.round(this.values.height);
 	}
-	public set px(value: number) {
-		this.values.px = value;
+	public set px(value: number | string) {
+		this.values.px = typeof value === 'string' ? parseInt(value, 10) : value;
 		this.updatePX();
 	}
 	public get px() {
 		return this.round(this.values.px);
 	}
-	public set vw(value: number) {
-		this.values.vw = value;
-		this.values.px = this.values.width * 0.01 * value;
+	public set vw(value: number | string) {
+		const valueNumber = typeof value === 'string' ? parseInt(value, 10) : value;
+		this.values.vw = valueNumber;
+		this.values.px = this.values.width * 0.01 * valueNumber;
 		this.values.vh = this.values.px / this.values.height * 100;
 	}
 	public get vw() {
 		return this.round(this.values.vw);
 	}
-	public set vh(value: number) {
-		this.values.vh = value;
-		this.values.px = this.values.height * 0.01 * value;
+	public set vh(value: number | string) {
+		const valueNumber = typeof value === 'string' ? parseInt(value, 10) : value;
+		this.values.vh = valueNumber;
+		this.values.px = this.values.height * 0.01 * valueNumber;
 		this.values.vw = this.values.px / this.values.width * 100;
 	}
 	public get vh() {
 		return this.round(this.values.vh);
 	}
+
+	ngOnInit() {}
 	private updatePX() {
 		this.values.vw = this.values.px / this.values.width * 100;
 		this.values.vh = this.values.px / this.values.height * 100;
 	}
 	private round(value: number) {
-		return (Math.round(value * 100) * 0.01);
+		if (value && typeof value === 'number') {
+			let roundValueString = (Math.round(value * 100) / 100).toString().replace(',', '.');
+			const shot = roundValueString.search('.');
+			if (shot > 0 && roundValueString.length - shot > 2) {
+				roundValueString = roundValueString.substr(0, shot + 2);
+			}
+			return roundValueString;
+		}
+		return '';
 	}
-	ngOnInit() {}
+	public onInputFocus(event: FocusEvent) {
+		(event.target as HTMLInputElement).select();
+	}
 }

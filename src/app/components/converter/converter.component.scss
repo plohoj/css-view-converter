@@ -8,6 +8,7 @@
         display: flex;
         flex-wrap: wrap;
         padding-top: .7em;
+        align-items: flex-start;
     }
     .parameter {
         padding-top: 3vh;
@@ -20,7 +21,6 @@
     }
     .value {
         display: flex;
-        align-items: baseline;
         input {
             min-width: 60px;
             max-width: 100px;

@@ -2,30 +2,30 @@
 	<div class="parameter">
 		<div class="label">Ширина</div>
 		<div class="value">
-			<input type="number" [(ngModel)]="width">
+			<input type="text" [(ngModel)]="width" (focus)="onInputFocus($event)">
 			<span class="unit underline">px</span>
 		</div>
 	</div>
 	<div class="parameter">
 		<div  class="label">Высота</div>
 		<div class="value">
-			<input type="number" [(ngModel)]="height" step="0.0001">
+			<input type="text" [(ngModel)]="height" (focus)="onInputFocus($event)">
 			<span class="unit underline">px</span>
 		</div>
 	</div>
 </app-group>
 <app-group class="converter">
 	<div class="parameter value" [title]="'Конвертер'" >
-		<input type="number" [(ngModel)]="px">
+		<input type="text" [(ngModel)]="px" (focus)="onInputFocus($event)">
 		<span class="unit underline">px</span>
 	</div>
 	<div>
 		<div class="parameter value">
-			<input type="number" [(ngModel)]="vw">
+			<input type="text" [(ngModel)]="vw" (focus)="onInputFocus($event)">
 			<span class="unit underline">vw</span>
 		</div>
 		<div class="parameter value">
-			<input type="number" [(ngModel)]="vh">
+			<input type="text" [(ngModel)]="vh" (focus)="onInputFocus($event)">
 			<span class="unit underline">vh</span>
 		</div>
 	</div>
