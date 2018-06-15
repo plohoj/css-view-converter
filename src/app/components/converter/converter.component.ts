@@ -21,28 +21,28 @@ export class ConverterComponent implements OnInit {
 	constructor() { }
 
 	public set width(value: number | string) {
-		this.values.width = typeof value === 'string' ? parseInt(value, 10) : value;
+		this.values.width = typeof value === 'string' ? parseFloat(value) : value;
 		this.updatePX();
 	}
 	public get width() {
 		return this.round(this.values.width);
 	}
 	public set height(value: number | string) {
-		this.values.height = typeof value === 'string' ? parseInt(value, 10) : value;
+		this.values.height = typeof value === 'string' ? parseFloat(value) : value;
 		this.updatePX();
 	}
 	public get height() {
 		return this.round(this.values.height);
 	}
 	public set px(value: number | string) {
-		this.values.px = typeof value === 'string' ? parseInt(value, 10) : value;
+		this.values.px = typeof value === 'string' ? parseFloat(value) : value;
 		this.updatePX();
 	}
 	public get px() {
 		return this.round(this.values.px);
 	}
 	public set vw(value: number | string) {
-		const valueNumber = typeof value === 'string' ? parseInt(value, 10) : value;
+		const valueNumber = typeof value === 'string' ? parseFloat(value) : value;
 		this.values.vw = valueNumber;
 		this.values.px = this.values.width * 0.01 * valueNumber;
 		this.values.vh = this.values.px / this.values.height * 100;
@@ -51,7 +51,7 @@ export class ConverterComponent implements OnInit {
 		return this.round(this.values.vw);
 	}
 	public set vh(value: number | string) {
-		const valueNumber = typeof value === 'string' ? parseInt(value, 10) : value;
+		const valueNumber = typeof value === 'string' ? parseFloat(value) : value;
 		this.values.vh = valueNumber;
 		this.values.px = this.values.height * 0.01 * valueNumber;
 		this.values.vw = this.values.px / this.values.width * 100;
@@ -66,7 +66,7 @@ export class ConverterComponent implements OnInit {
 		this.values.vh = this.values.px / this.values.height * 100;
 	}
 	private round(value: number) {
-		if (value && typeof value === 'number') {
+		if (value && typeof value === 'number' && value !== Infinity) {
 			let roundValueString = (Math.round(value * 100) / 100).toString().replace(',', '.');
 			const shot = roundValueString.search('.');
 			if (shot > 0 && roundValueString.length - shot > 2) {
