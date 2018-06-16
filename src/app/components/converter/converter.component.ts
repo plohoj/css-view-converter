@@ -79,4 +79,13 @@ export class ConverterComponent implements OnInit {
 	public onInputFocus(event: FocusEvent) {
 		(event.target as HTMLInputElement).select();
 	}
+	public copyToBuffer(event: ClipboardEvent, units = 'px') {
+		const input = event.target as HTMLInputElement;
+		const value = input.value.substring(input.selectionStart, input.selectionEnd);
+		if (!value) {
+			return;
+		}
+		event.clipboardData.setData('text/plain', value + units);
+		event.preventDefault();
+	}
 }

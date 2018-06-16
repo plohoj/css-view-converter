@@ -1,33 +1,33 @@
 <app-group [title]="'Экран'" class="screen">
-	<div class="parameter">
+	<div class="parameter right-space">
 		<div class="label">Ширина</div>
-		<div class="value">
-			<input type="text" [(ngModel)]="width" (focus)="onInputFocus($event)">
+		<label class="value">
+			<input type="text" [(ngModel)]="width" (focus)="onInputFocus($event)" (copy)="copyToBuffer($event)">
 			<span class="unit underline">px</span>
-		</div>
+		</label>
 	</div>
 	<div class="parameter">
 		<div  class="label">Высота</div>
-		<div class="value">
-			<input type="text" [(ngModel)]="height" (focus)="onInputFocus($event)">
+		<label class="value">
+			<input type="text" [(ngModel)]="height" (focus)="onInputFocus($event)" (copy)="copyToBuffer($event)">
 			<span class="unit underline">px</span>
-		</div>
+		</label>
 	</div>
 </app-group>
-<app-group class="converter">
-	<div class="parameter value" [title]="'Конвертер'" >
-		<input type="text" [(ngModel)]="px" (focus)="onInputFocus($event)">
+<app-group [title]="'Значения'" class="converter">
+	<label class="parameter right-space value" [title]="'Конвертер'" >
+		<input type="text" [(ngModel)]="px" (focus)="onInputFocus($event)" (copy)="copyToBuffer($event)">
 		<span class="unit underline">px</span>
-	</div>
+	</label>
 	<div>
-		<div class="parameter value">
-			<input type="text" [(ngModel)]="vw" (focus)="onInputFocus($event)">
+		<label class="parameter value">
+			<input type="text" [(ngModel)]="vw" (focus)="onInputFocus($event)" (copy)="copyToBuffer($event, 'vw')">
 			<span class="unit underline">vw</span>
-		</div>
-		<div class="parameter value">
-			<input type="text" [(ngModel)]="vh" (focus)="onInputFocus($event)">
+		</label>
+		<label class="parameter value">
+			<input type="text" [(ngModel)]="vh" (focus)="onInputFocus($event)" (copy)="copyToBuffer($event, 'vh')">
 			<span class="unit underline">vh</span>
-		</div>
+		</label>
 	</div>
 </app-group>
 

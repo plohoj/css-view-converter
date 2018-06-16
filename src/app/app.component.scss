@@ -1,4 +1,6 @@
 :host {
+    display: flex;
+    flex-wrap: wrap;
     app-add-button {
         right: 3vmin;
         bottom: 3vmin;
