@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IConverterSize } from '../../interfaces/iconverter-size';
+import { BufferUnitService } from '../../shared/services/buffer-unit.service';
 
 @Component({
 	selector: 'app-converter',
@@ -18,7 +19,7 @@ export class ConverterComponent implements OnInit {
 		vw: null as number,
 		vh: null as number,
 	};
-	constructor() { }
+	constructor(private bufferUnitService: BufferUnitService) {}
 
 	public set width(value: number | string) {
 		this.values.width = typeof value === 'string' ? parseFloat(value) : value;
@@ -80,6 +81,9 @@ export class ConverterComponent implements OnInit {
 		(event.target as HTMLInputElement).select();
 	}
 	public copyToBuffer(event: ClipboardEvent, units = 'px') {
+		if (!this.bufferUnitService.addBufferUnit.value) {
+			return;
+		}
 		const input = event.target as HTMLInputElement;
 		const value = input.value.substring(input.selectionStart, input.selectionEnd);
 		if (!value) {
