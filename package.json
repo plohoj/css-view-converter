@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build && electron .",
+    "fast-start": "electron .",
     "serve": "electron ./src/electron/serve.js",
     "build": "ng build",
     "test": "ng test",
