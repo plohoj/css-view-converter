@@ -1,9 +1,27 @@
 :host {
     display: block;
+    position: relative;
     margin: 1vmin; 
     border-radius: 15px;
     box-shadow: 0 0 3vmin -1vmin;
     padding: 1vw;
+    .delete {
+        position: absolute;
+        margin-left: auto;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        line-height: 1em;
+        cursor: pointer;
+        padding: 1vmin;
+        opacity: 0;
+        transition: .25s
+    }
+    &:hover {
+        .delete {
+            opacity: 1;
+        }
+    }
     app-group {
         display: flex;
         flex-wrap: wrap;

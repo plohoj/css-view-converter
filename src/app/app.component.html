@@ -1,2 +1,3 @@
-<app-converter *ngFor="let converter of converters" [converter]="converter"></app-converter>
+<app-converter *ngFor="let converter of converters" [size]="converter" (modification)="modification(converter, $event)"
+    (delete)="delete(converter)"></app-converter>
 <app-add-button (click)="add()"></app-add-button>
