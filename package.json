@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng build && electron .",
     "fast-start": "electron .",
-    "serve": "electron ./src/electron/serve.js",
+    "serve": "electron . -appMode=NG_SERVE",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

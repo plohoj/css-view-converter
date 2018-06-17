@@ -49,6 +49,7 @@ export class MainAppManager {
 				break;
 			case 'FiLE_SYSTEM':
 			default:
+				mode = 'FiLE_SYSTEM';
 				this.mainWindow.loadFile(`${PATH}/../../dist/css-view-converter/index.html`);
 				break;
 		}
